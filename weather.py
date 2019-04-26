@@ -3,15 +3,15 @@
 import numpy as np
 from keras.models import Sequential
 from keras.layers import Dense
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 #versions:
 # 3 -> mse nn relu with rainfall output
 # 4 -> mse nn s with raintomorrow output
 
 #iteration is which file it loads, then saves to one higher
-iteration = 4
-version = 4
+iteration = 6
+version = 3
 training = False
 
 filename = "weatherCleaned1.csv"
@@ -59,20 +59,22 @@ if version == 4:
     model.add(Dense(1, input_dim = 10, activation='sigmoid'))
     model.compile(loss='mse', optimizer='adam')
 
-#load previously trained waits
+#load previously trained weights
 if iteration > 0:
     model.load_weights('./params'+str(version)+'-'+str(iteration))
 
 #train the model
 if training:
-    history = model.fit(trainx, trainy, epochs=200 ,batch_size=100, verbose = 2, validation_data = (testx, testy))
+    history = model.fit(trainx, trainy, epochs=1000 ,batch_size=100, verbose = 2, validation_data = (testx, testy))
     model.save_weights('./params'+str(version)+'-'+str(iteration+1))
 
 #test the model
 prediction = model.predict(testx)
-#print(prediction[:10])
-#print(testy[:10])
-
 print("prediction      actual")
 for i in range(20):
     print("%10f    %10f" % (prediction[i], testy[i]))
+
+print(testy)
+print(np.round(np.squeeze(prediction), decimals=1))
+output = np.round(np.squeeze(prediction), decimals=1)
+
