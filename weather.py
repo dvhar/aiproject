@@ -5,34 +5,35 @@ from keras.models import Sequential
 from keras.layers import Dense
 #import matplotlib.pyplot as plt
 
-#versions:
-# 3 -> mse nn relu with rainfall output
-# 4 -> mse nn s with raintomorrow output
 
 #iteration is which file it loads, then saves to one higher
-iteration = 6
-version = 3
-training = False
+iteration = 1
+version = 5
+training = True
 
-filename = "weatherCleaned1.csv"
+filename = "weatherCleaned3.csv"
+
+outIdx = 15
+inIdx = 14
+epochs = 500
+#rowDelim = 850
+rowDelim = 65000
 
 #load data from file
 data = np.genfromtxt(filename, delimiter=',')[1:]
-np.random.seed(100)
+#np.random.seed(100)
 np.random.shuffle(data)
 data = data.astype(float)
 
 #separate training and testing data
-trainx = data[:45000, :13]
-testx = data[45000:, :13]
 
 if version >= 4:
-    trainy = data[:45000, 16]
-    testy = data[45000:, 16]
+    trainy = data[:rowDelim, outIdx]
+    testy = data[rowDelim:, outIdx]
+    trainx = data[:rowDelim, :inIdx]
+    testx = data[rowDelim:, :inIdx]
 
-if version <= 3:
-    trainy = data[:45000, 13]
-    testy = data[45000:, 13]
+print(testy, trainy)
 
 #normalize data
 mean = trainx.mean(axis=0)
@@ -45,15 +46,8 @@ testx /= std
 #create model
 model = Sequential()
 
-if version == 3:
-    model.add(Dense(13, input_dim = 13, activation='tanh'))
-    model.add(Dense(10, input_dim = 13, activation='tanh'))
-    model.add(Dense(10, input_dim = 11, activation='tanh'))
-    model.add(Dense(1, input_dim = 10, activation='relu'))
-    model.compile(loss='mse', optimizer='adam')
-
-if version == 4:
-    model.add(Dense(13, input_dim = 13, activation='tanh'))
+if version >= 4:
+    model.add(Dense(13, input_dim = 14, activation='tanh'))
     model.add(Dense(10, input_dim = 13, activation='tanh'))
     model.add(Dense(10, input_dim = 11, activation='tanh'))
     model.add(Dense(1, input_dim = 10, activation='sigmoid'))
@@ -65,16 +59,16 @@ if iteration > 0:
 
 #train the model
 if training:
-    history = model.fit(trainx, trainy, epochs=1000 ,batch_size=100, verbose = 2, validation_data = (testx, testy))
+    history = model.fit(trainx, trainy, epochs=epochs ,batch_size=100, verbose = 2, validation_data = (testx, testy))
     model.save_weights('./params'+str(version)+'-'+str(iteration+1))
 
 #test the model
-prediction = model.predict(testx)
+output = model.predict(testx)
+prediction = np.round(np.squeeze(output), decimals=1)
 print("prediction      actual")
 for i in range(20):
     print("%10f    %10f" % (prediction[i], testy[i]))
 
-print(testy)
-print(np.round(np.squeeze(prediction), decimals=1))
-output = np.round(np.squeeze(prediction), decimals=1)
+#print(testy)
+#print(prediction)
 
