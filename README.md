@@ -24,12 +24,8 @@ I tested it against sigmoid and relu, and it performs much better.
 
 The output uses sigmoid because the output is yes/no, so it needs a function that goes from 0 to 1
 
-**Loss function and optimizer function:**
-
-I found that mean squared error works well, and so does the adam optimizer.
-
 **Data cleaning:**
 
-The original data file is big enough that I could discard a lot of junk, so I used SQL to select only the rows that don't have any null values, and arranged them in a way that puts all the inputs on the left and outputs on the right for easy array slicing.
+There were a ton of null values in the data, so I used SQL to make a new file and cut out all the rows that were causing trouble.
 
 It gets much better accuracy when a neural net is specific to one city than when it's train on all of them, so I created a csv file with just Albury. Another option would be to add 36 yes-no columns for the 36 different cities.

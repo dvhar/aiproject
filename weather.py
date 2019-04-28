@@ -8,17 +8,18 @@ import matplotlib.pyplot as plt
 
 
 #iteration is which file it loads, then saves to one higher
-iteration = 2
-version = 5
+iteration = 1
+version = 7
 
 #what to do
 training = False
 printweights = False
-runprediction = False
+runprediction = True
 
 filename = "weatherCleaned3.csv"
 outIdx = 15
 inIdx = 14
+inIdx2 = np.array([1,2,5,6,7,8,9,10,12,13])
 epochs = 500
 #rowDelim = 850
 rowDelim = 65000
@@ -31,11 +32,14 @@ data = data.astype(float)
 
 
 #separate training and testing data
-if version >= 4:
-    trainy = data[:rowDelim, outIdx]
-    testy = data[rowDelim:, outIdx]
+trainy = data[:rowDelim, outIdx]
+testy = data[rowDelim:, outIdx]
+if version <= 5:
     trainx = data[:rowDelim, :inIdx]
     testx = data[rowDelim:, :inIdx]
+else:
+    trainx = data[:rowDelim, inIdx2]
+    testx = data[rowDelim:, inIdx2]
 
 #normalize data
 mean = trainx.mean(axis=0)
@@ -48,11 +52,18 @@ testx /= std
 #create model
 model = Sequential()
 
-if version >= 4:
+if version <= 5:
     model.add(Dense(13, input_dim = 14, activation='tanh'))
     model.add(Dense(10, input_dim = 13, activation='tanh'))
     model.add(Dense(10, input_dim = 10, activation='tanh'))
     model.add(Dense(1, input_dim = 10, activation='sigmoid'))
+    model.compile(loss='mse', optimizer='adam')
+
+else:
+    model.add(Dense(12, input_dim = 10, activation='tanh'))
+    model.add(Dense(10, input_dim = 12, activation='tanh'))
+    model.add(Dense(5, input_dim = 10, activation='tanh'))
+    model.add(Dense(1, input_dim = 5, activation='sigmoid'))
     model.compile(loss='mse', optimizer='adam')
 
 #load previously trained weights
