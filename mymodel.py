@@ -59,8 +59,12 @@ def layer(weights, biases, inputs):
     output = np.tanh(output)
     return output
 
-output1 = layer(weights1, biases1, input1)
-output2 = layer(weights2, biases2, output1)
-output3 = layer(weights3, biases3, output2)
-output4 = layer(weights4, biases4, output3)
-print(output4)
+
+def mymodel(inputs):
+    output1 = layer(weights1, biases1, inputs)
+    output2 = layer(weights2, biases2, output1)
+    output3 = layer(weights3, biases3, output2)
+    output4 = layer(weights4, biases4, output3)
+    return output4
+
+print(mymodel(input1))
