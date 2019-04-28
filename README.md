@@ -26,6 +26,15 @@ The output uses sigmoid because the output is yes/no, so it needs a function tha
 
 **Data cleaning:**
 
-There were a ton of null values in the data, so I used SQL to make a new file and cut out all the rows that were causing trouble.
+There were a ton of null values in the data, so I used SQL to make a new file and cut out all the rows that were causing trouble. The program I used is available at davosaur.com/csv and this query will return the same rows:
+```
+select from /home/dave/sync/classes/artificiali/h/aiproject/weatherAUS.csv
+where not (
+3=null or 4=null or 5=null or 6=null or 7=null or 9=null or 12=null or 13=null or 14=null or 15=null or 16=null or 17=null or 18=null or 19=null or 20=null or 21=null)
+```
+It gets much better accuracy when a neural net is specific to one city than when it's train on all of them, so I created another csv file with just Albury. Another option would be to add 36 yes-no columns for the 36 different cities so make the bigger dataset more accurate.
 
-It gets much better accuracy when a neural net is specific to one city than when it's train on all of them, so I created a csv file with just Albury. Another option would be to add 36 yes-no columns for the 36 different cities.
+**input features:**
+
+Here are histograms of how frequently each input feature corresponds to rain or no rain. Blue is rain tomorrow, Orange is no rain tomorrow. The x-axis is feature value, y-axis is frequency of that value and is normalized between the two outcomes for easy comparison. I'm experimenting with including all of them vs just the ones that have noticable correlation with the outcome.
+<img src="plot.jpg" align="middle" width="800"/>
