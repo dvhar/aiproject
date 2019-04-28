@@ -39,3 +39,11 @@ Here are histograms of how frequently each input feature value corresponds to ra
 
 <hr>
 <img src="plot.jpg" align="middle" width="800"/>
+<hr>
+Left is keras model prediction, center is actual rainfall tomorrow, right is my function's prediction
+<br>
+<img src="test9.jpg" align="middle"/>
+<hr>
+My model using weights extracted from keras. There are too many to hardcode into the function, so it loops over the arrays.
+<br>
+<img src="mymod.jpg" align="middle"/>
