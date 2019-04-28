@@ -34,7 +34,7 @@ where not (
 ```
 It gets much better accuracy when a neural net is specific to one city than when it's train on all of them, so I created another csv file with just Albury. Another option would be to add 36 yes-no columns for the 36 different cities so make the bigger dataset more accurate.
 
-**input features:**
+**Input features:**
 
 Here are histograms of how frequently each input feature corresponds to rain or no rain. Blue is rain tomorrow, Orange is no rain tomorrow. The x-axis is feature value, y-axis is frequency of that value and is normalized between the two outcomes for easy comparison. I'm experimenting with including all of them vs just the ones that have noticable correlation with the outcome.
 <img src="plot.jpg" align="middle" width="800"/>
