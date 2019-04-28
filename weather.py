@@ -8,11 +8,11 @@ import matplotlib.pyplot as plt
 
 
 #iteration is which file it loads, then saves to one higher
-iteration = 1
-version = 7
+iteration = 0
+version = 8
 
 #what to do
-training = False
+training = True
 printweights = False
 runprediction = True
 
@@ -52,19 +52,25 @@ testx /= std
 #create model
 model = Sequential()
 
-if version <= 5:
+if version == 5:
     model.add(Dense(13, input_dim = 14, activation='tanh'))
     model.add(Dense(10, input_dim = 13, activation='tanh'))
     model.add(Dense(10, input_dim = 10, activation='tanh'))
     model.add(Dense(1, input_dim = 10, activation='sigmoid'))
-    model.compile(loss='mse', optimizer='adam')
 
-else:
+elif version == 7:
     model.add(Dense(12, input_dim = 10, activation='tanh'))
     model.add(Dense(10, input_dim = 12, activation='tanh'))
     model.add(Dense(5, input_dim = 10, activation='tanh'))
     model.add(Dense(1, input_dim = 5, activation='sigmoid'))
-    model.compile(loss='mse', optimizer='adam')
+
+elif version == 8:
+    model.add(Dense(10, input_dim = 10, activation='tanh'))
+    model.add(Dense(10, input_dim = 10, activation='tanh'))
+    model.add(Dense(10, input_dim = 10, activation='tanh'))
+    model.add(Dense(1, input_dim = 10, activation='sigmoid'))
+
+model.compile(loss='mse', optimizer='adam')
 
 #load previously trained weights
 if iteration > 0:
