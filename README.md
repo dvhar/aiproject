@@ -36,5 +36,7 @@ It gets much better accuracy when a neural net is specific to one city than when
 
 **Input features:**
 
-Here are histograms of how frequently each input feature corresponds to rain or no rain. Blue is rain tomorrow, Orange is no rain tomorrow. The x-axis is feature value, y-axis is frequency of that value and is normalized between the two outcomes for easy comparison. I'm experimenting with including all of them vs just the ones that have noticable correlation with the outcome.
+Here are histograms of how frequently each input feature corresponds to rain or no rain. Blue is rain tomorrow, Orange is no rain tomorrow. The x-axis is feature value, y-axis is frequency of that value and is normalized between the two outcomes for easy comparison.
+
+<hr>
 <img src="plot.jpg" align="middle" width="800"/>
