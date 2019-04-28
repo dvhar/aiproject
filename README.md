@@ -8,8 +8,7 @@ https://www.kaggle.com/jsphyg/weather-dataset-rattle-package
 
 **Inputs:**
 
-MinTemp, MaxTemp, WindGustSpeed, WindSpeed9am, WindSpeed3pm, Humidity9am, Humidity3pm, Pressure9am, Pressure3pm, Cloud9am, Cloud3pm, Temp9am, Temp3pm, Rainfall
-
+MinTemp,MaxTemp,Rainfall,Evaporation,Sunshine,WindGustSpeed,WindSpeed9am,WindSpeed3pm,Humidity9am,Humidity3pm,Pressure9am,Pressure3pm,Cloud9am,Cloud3pm,Temp9am,Temp3pm
 
 **Output:**
 
@@ -36,7 +35,7 @@ It gets much better accuracy when a neural net is specific to one city than when
 
 **Input features:**
 
-Here are histograms of how frequently each input feature corresponds to rain or no rain. Blue is rain tomorrow, Orange is no rain tomorrow. The x-axis is feature value, y-axis is frequency of that value and is normalized between the two outcomes for easy comparison.
+Here are histograms of how frequently each input feature value corresponds to rain or no rain. Blue is rain tomorrow, Orange is no rain tomorrow. The x-axis is feature value, y-axis is frequency of that value and is normalized between the two outcomes for easy comparison.
 
 <hr>
 <img src="plot.jpg" align="middle" width="800"/>
