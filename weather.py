@@ -3,13 +3,14 @@
 import numpy as np
 from keras.models import Sequential
 from keras.layers import Dense
+from pprint import pprint
 #import matplotlib.pyplot as plt
 
 
 #iteration is which file it loads, then saves to one higher
-iteration = 1
+iteration = 2
 version = 5
-training = True
+training = False
 
 filename = "weatherCleaned3.csv"
 
@@ -49,7 +50,7 @@ model = Sequential()
 if version >= 4:
     model.add(Dense(13, input_dim = 14, activation='tanh'))
     model.add(Dense(10, input_dim = 13, activation='tanh'))
-    model.add(Dense(10, input_dim = 11, activation='tanh'))
+    model.add(Dense(10, input_dim = 10, activation='tanh'))
     model.add(Dense(1, input_dim = 10, activation='sigmoid'))
     model.compile(loss='mse', optimizer='adam')
 
@@ -61,6 +62,13 @@ if iteration > 0:
 if training:
     history = model.fit(trainx, trainy, epochs=epochs ,batch_size=100, verbose = 2, validation_data = (testx, testy))
     model.save_weights('./params'+str(version)+'-'+str(iteration+1))
+
+#print weights and biases for mymodel
+for layer in model.layers:
+    print('weights = ')
+    pprint(layer.get_weights()[0])
+    print('biase = ')
+    pprint(layer.get_weights()[1])
 
 #test the model
 output = model.predict(testx)
