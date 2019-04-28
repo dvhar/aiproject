@@ -4,17 +4,18 @@ import numpy as np
 from keras.models import Sequential
 from keras.layers import Dense
 from pprint import pprint
+from mymodel import mymodel
 
 
 #iteration is which file it loads, then saves to one higher
 
-iteration = 0
+iteration = 3
 
 #tanh final version
-#version = 9
+version = 9
 
 #linear neural network
-version = 10
+#version = 10
 
 #linear regression
 #version = 11
@@ -23,7 +24,7 @@ version = 10
 #version = 12
 
 #what to do
-training = True
+training = False
 printweights = False
 runprediction = True
 
@@ -60,6 +61,12 @@ trainx -= mean
 trainx /= std
 testx -= mean
 testx /= std
+
+if printweights:
+    print('mean = ')
+    pprint(mean)
+    print('std = ')
+    pprint(std)
 
 #create model
 model = Sequential()
@@ -103,8 +110,8 @@ if printweights:
 
 #test the model
 if runprediction:
-    output = model.predict(testx)
-    prediction = np.round(np.squeeze(output), decimals=1)
-    print("prediction      actual")
-    for i in range(40):
-        print("%10f    %10f" % (prediction[i], testy[i]))
+    output = np.squeeze(model.predict(testx))
+    print("kprediction      actual        myprediction")
+    for i in range(20):
+        print("%10f    %10f     %10f" % (output[i], testy[i], mymodel(testx[i])))
+    print('mean squared error:',np.mean((output-testy)**2))
