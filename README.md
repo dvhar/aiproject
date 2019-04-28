@@ -6,10 +6,6 @@ Rainfall in australia
 
 https://www.kaggle.com/jsphyg/weather-dataset-rattle-package
 
-**Inputs:**
-
-MinTemp,MaxTemp,Rainfall,Evaporation,Sunshine,WindGustSpeed,WindSpeed9am,WindSpeed3pm,Humidity9am,Humidity3pm,Pressure9am,Pressure3pm,Cloud9am,Cloud3pm,Temp9am,Temp3pm
-
 **Output:**
 
 probability of rainfall tomorrow
@@ -47,3 +43,7 @@ Left is keras model prediction, center is actual rainfall tomorrow, right is my 
 My model using weights extracted from keras. There are too many to hardcode into the function, so it loops over the arrays.
 <br>
 <img src="mymod.png" align="middle"/>
+<hr>
+Left is The neural net but with all linear activation functions. It does poorly.
+<br>
+<img src="linearnn.png" align="middle"/>
