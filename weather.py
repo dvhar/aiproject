@@ -7,8 +7,20 @@ from pprint import pprint
 
 
 #iteration is which file it loads, then saves to one higher
-iteration = 1
-version = 9
+
+iteration = 0
+
+#tanh final version
+#version = 9
+
+#linear neural network
+version = 10
+
+#linear regression
+#version = 11
+
+#linear regression with hard sigmoid
+#version = 12
 
 #what to do
 training = True
@@ -18,7 +30,12 @@ runprediction = True
 filename = "weatherCleaned4.csv"
 outIdx = 16
 inIdx = 16
-epochs = 500
+
+#testing
+#epochs = 500
+#full training
+epochs = 25000
+
 rowDelim = 50000
 
 #load data from file
@@ -47,24 +64,23 @@ testx /= std
 #create model
 model = Sequential()
 
-if version == 5:
-    model.add(Dense(13, input_dim = 14, activation='tanh'))
-    model.add(Dense(10, input_dim = 13, activation='tanh'))
-    model.add(Dense(10, input_dim = 10, activation='tanh'))
-    model.add(Dense(1, input_dim = 10, activation='sigmoid'))
-
-elif version == 8:
-    model.add(Dense(10, input_dim = 10, activation='tanh'))
-    model.add(Dense(10, input_dim = 10, activation='tanh'))
-    model.add(Dense(10, input_dim = 10, activation='tanh'))
-    model.add(Dense(1, input_dim = 10, activation='sigmoid'))
-
-#weatherCleaned4
-elif version == 9:
+if version == 9:
     model.add(Dense(12, input_dim = 16, activation='tanh'))
     model.add(Dense(10, input_dim = 12, activation='tanh'))
     model.add(Dense(10, input_dim = 10, activation='tanh'))
     model.add(Dense(1, input_dim = 10, activation='sigmoid'))
+
+if version == 10:
+    model.add(Dense(12, input_dim = 16, activation='linear'))
+    model.add(Dense(10, input_dim = 12, activation='linear'))
+    model.add(Dense(10, input_dim = 10, activation='linear'))
+    model.add(Dense(1, input_dim = 10, activation='hard_sigmoid'))
+
+if version == 11:
+    model.add(Dense(1, input_dim = 16, activation='linear'))
+
+if version == 12:
+    model.add(Dense(1, input_dim = 16, activation='hard_sigmoid'))
 
 model.compile(loss='mse', optimizer='adam')
 

@@ -29,10 +29,7 @@ plt.subplots_adjust(hspace=0.6)
 for ii in range(len(data[0])-1):
     plt.subplot(9,2,ii+1)
     plt.title(header[ii])
-    if ii in bigbars:
-        bins = 8
-    else:
-        bins = 30
+    bins = (30,8)[ii in bigbars]
     plt.hist(notrainy[:,ii], alpha=0.7, bins=bins, label='not rainy',  color='orange', normed=True)
     plt.hist(rainy[:,ii], alpha=0.5, bins=bins, label='rainy',  color='blue', normed=True)
 
