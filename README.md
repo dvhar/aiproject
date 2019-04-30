@@ -66,3 +66,6 @@ Left is keras model prediction, center is actual rainfall tomorrow, right is my 
 
 <br>
 <img src="logreg.png" align="middle"/>
+<hr>
+
+https://colab.research.google.com/drive/1qUAs8rP3HGg76wUXv-_PTUWukr9JzbFa#scrollTo=I4z1jc9OU1Ab
