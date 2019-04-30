@@ -48,6 +48,13 @@ Left is keras model prediction, center is actual rainfall tomorrow, right is my 
 
 <br>
 <img src="test9.png" align="middle"/>
+<br>
+
+This is the result when limiting the input features to what look like the most relevant ones:
+
+<br>
+<img src="limited.png" align="middle" width="300"/>
+
 <hr>
 
 **Model with linear activation:**
