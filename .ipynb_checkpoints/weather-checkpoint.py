@@ -1,23 +1,23 @@
 #!/usr/bin/env python3
+
 import numpy as np
 from keras.models import Sequential
 from keras.layers import Dense
 from pprint import pprint
 from mymodel import mymodel
 import matplotlib.pyplot as plt
-import warnings
-warnings.filterwarnings("ignore")
 
 
 
 #iteration is which file it loads, then saves to one higher if training
-iteration = 1
+iteration = 6
 
 #9 - main version
 #10 - linear nn
 #11 - linear regression
 #12 - logistic regression
-version = 12
+#13 - main version trained on single location
+version = 9
 
 
 #what to do
@@ -29,6 +29,10 @@ plotting = True
 filename = "weatherCleaned4.csv"
 outIdx = 16
 inIdx = 16
+
+#testing
+#epochs = 500
+#full training
 epochs = 25000
 rowDelim = 50000
 
@@ -112,6 +116,8 @@ if runprediction:
     if plotting:
         rainy = koutput[np.where(testy==1)]
         notrainy = koutput[np.where(testy==0)]
+        print(rainy)
+        print(notrainy)
         plt.figure(figsize=(4,3.5))
         bins = 30
         plt.hist(notrainy, alpha=0.7, bins=bins, label='not rainy',  color='orange', normed=True)
