@@ -75,4 +75,10 @@ This is the result when limiting the input features to what look like the most r
 <img src="logreg.png" align="middle"/>
 <hr>
 
+Keras model:
+
 https://colab.research.google.com/drive/1qUAs8rP3HGg76wUXv-_PTUWukr9JzbFa#scrollTo=I4z1jc9OU1Ab
+
+My hardcoded model:
+
+https://colab.research.google.com/drive/17W1672j8tua65wXRZLHxona0XQ4TGVjk#scrollTo=OhhBMI6MZQwS
