@@ -11,13 +11,13 @@ warnings.filterwarnings("ignore")
 
 
 #iteration is which file it loads, then saves to one higher if training
-iteration = 1
+iteration = 6
 
 #9 - main version
 #10 - linear nn
 #11 - linear regression
 #12 - logistic regression
-version = 12
+version = 9
 
 
 #what to do
