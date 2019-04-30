@@ -15,7 +15,6 @@ probability of rainfall tomorrow
 All but the last layer use hyberbolic tangent activation function.
 
 Tanh is good because some inputs may produce opposite effects when numbers go up or down, so output range of -1 to 1 can take advantage of that. 
-I tested it against sigmoid and relu, and it performs much better.
 
 The output uses sigmoid because the output is yes/no, so it needs a function that goes from 0 to 1
 
@@ -27,8 +26,6 @@ select from /home/dave/sync/classes/artificiali/h/aiproject/weatherAUS.csv
 where not (
 3=null or 4=null or 5=null or 6=null or 7=null or 9=null or 12=null or 13=null or 14=null or 15=null or 16=null or 17=null or 18=null or 19=null or 20=null or 21=null)
 ```
-It gets much better accuracy when a neural net is specific to one city than when it's train on all of them, so I created another csv file with just Albury. Another option would be to add 36 yes-no columns for the 36 different cities so make the bigger dataset more accurate.
-
 **Input features:**
 
 Here are histograms of how frequently each input feature value corresponds to rain or no rain. Blue is rain tomorrow, Orange is no rain tomorrow. The x-axis is feature value, y-axis is frequency of that value and is normalized between the two outcomes for easy comparison.
@@ -39,7 +36,7 @@ Here are histograms of how frequently each input feature value corresponds to ra
 
 **My model function:** 
 
-There are too many parameters to hardcode into the function, so it loops over the arrays extracted from kers.
+There are too many parameters to hardcode into the function, so it loops over the arrays extracted from keras.
 
 <br>
 <img src="mymod.png" align="middle"/>
@@ -55,7 +52,17 @@ Left is keras model prediction, center is actual rainfall tomorrow, right is my 
 
 **Model with linear activation:**
 
-Left is The neural net but with all linear activation functions. It does poorly.
-
 <br>
 <img src="linearnn.png" align="middle"/>
+<hr>
+
+**Model with simple linear regression:**
+
+<br>
+<img src="linreg.png" align="middle"/>
+<hr>
+                             
+**MOdel with simple logistic regression:**
+
+<br>
+<img src="logreg.png" align="middle"/>
