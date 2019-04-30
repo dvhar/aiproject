@@ -33,17 +33,29 @@ It gets much better accuracy when a neural net is specific to one city than when
 
 Here are histograms of how frequently each input feature value corresponds to rain or no rain. Blue is rain tomorrow, Orange is no rain tomorrow. The x-axis is feature value, y-axis is frequency of that value and is normalized between the two outcomes for easy comparison.
 
-<hr>
+<br>
 <img src="plot.jpg" align="middle" width="800"/>
 <hr>
-Left is keras model prediction, center is actual rainfall tomorrow, right is my function's prediction
-<br>
-<img src="test9.png" align="middle"/>
-<hr>
-My model using weights extracted from keras. There are too many to hardcode into the function, so it loops over the arrays.
+
+**My model function:** 
+
+There are too many parameters to hardcode into the function, so it loops over the arrays extracted from kers.
+
 <br>
 <img src="mymod.png" align="middle"/>
 <hr>
+
+**Main model performance:**
+
+Left is keras model prediction, center is actual rainfall tomorrow, right is my function's prediction
+
+<br>
+<img src="test9.png" align="middle"/>
+<hr>
+
+**Model with linear activation:**
+
 Left is The neural net but with all linear activation functions. It does poorly.
+
 <br>
 <img src="linearnn.png" align="middle"/>
