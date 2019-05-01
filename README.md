@@ -50,7 +50,7 @@ Left is keras model prediction, center is actual rainfall tomorrow, right is my 
 <img src="test9.png" align="middle"/>
 <br>
 
-This is the result when limiting the input features to what look like the most relevant ones:
+This is the result when limiting the input features to what look like the most relevant ones. It gets very high confidence on some positive hits, but does very poorly for most predictions, which apperently need the less-obvious data points to increase accuracy.
 
 <br>
 <img src="limited.png" align="middle" width="300"/>
