@@ -57,7 +57,7 @@ This is the result when limiting the input features to what look like the most r
 
 <hr>
 
-**Model with linear activation:**
+**Nueral network with linear activation:**
 
 <br>
 <img src="linearnn.png" align="middle"/>
@@ -69,7 +69,7 @@ This is the result when limiting the input features to what look like the most r
 <img src="linreg.png" align="middle"/>
 <hr>
                              
-**MOdel with simple logistic regression:**
+**Model with simple logistic regression:**
 
 <br>
 <img src="logreg.png" align="middle"/>
