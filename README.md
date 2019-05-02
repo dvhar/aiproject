@@ -36,7 +36,7 @@ Here are histograms of how frequently each input feature value corresponds to ra
 
 **My model function:** 
 
-There are too many parameters to hardcode into the function, so it loops over the arrays extracted from keras. The arrays are produced by running weather.py with printweights=True, and then editing the output a bit. This is in mymodel.py and mymodel.ipynb. input1 is one sample row from the input file.
+There are too many parameters to hardcode into the function, so it loops over the arrays extracted from keras. The arrays are produced by running weather.py with printweights=True, and then editing the output a bit. This is in mymodel.py and mymodel.ipynb. input1 is one sample row from the input file. It produces the same output as the keras model it is based on.
 
 <br>
 <img src="mymod.png" align="middle"/>
