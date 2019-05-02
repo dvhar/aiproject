@@ -28,7 +28,7 @@ where not (
 ```
 **Input features:**
 
-Here are histograms of how frequently each input feature value corresponds to rain or no rain. Blue is rain tomorrow, Orange is no rain tomorrow. The x-axis is feature value, y-axis is frequency of that value and is normalized between the two outcomes for easy comparison.
+Here are histograms of how frequently each input feature value corresponds to rain or no rain. Blue is rain tomorrow, Orange is no rain tomorrow. The x-axis is feature value, y-axis is frequency of that value and is normalized between the two outcomes for easy comparison. 7 features have very obvious correlations with the output, but the model does best when using all the features and not just the obvious ones.
 
 <br>
 <img src="plot.jpg" align="middle" width="800"/>
