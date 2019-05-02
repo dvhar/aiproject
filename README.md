@@ -44,7 +44,7 @@ There are too many parameters to hardcode into the function, so it loops over th
 
 **Main model performance:**
 
-Left is keras model prediction, center is actual rainfall tomorrow, right is my function's prediction
+Left is keras model prediction, center is actual rainfall tomorrow, right is my function's prediction. It can tell you with good certainty that it will not rain, but it is harder to be right about positive predictions. This is expected, since no clouds means no rain, but having clouds doesn't always mean it rains.
 
 <br>
 <img src="test9.png" align="middle"/>
@@ -65,11 +65,15 @@ This is the result when limiting the input features to what look like the most r
 
 **Model with simple linear regression:**
 
+The linear regression model gets almost the same results as the 4-layer neural network with linear activation.
+
 <br>
 <img src="linreg.png" align="middle"/>
 <hr>
                              
 **Model with simple logistic regression:**
+
+This gets a similar type of output as the main model, but with far less accuracy.
 
 <br>
 <img src="logreg.png" align="middle"/>
