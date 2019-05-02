@@ -20,7 +20,7 @@ The output uses sigmoid because the output is yes/no, so it needs a function tha
 
 **Data cleaning:**
 
-There were a ton of null values in the data, so I used SQL to make a new file and cut out all the rows that were causing trouble. The program I used is available at davosaur.com/csv and this query will return the same rows:
+There were a ton of null values in the data, so I used SQL to make a new file (weatherCleaned4.csv) and cut out all the rows that were causing trouble. The program I used is available at davosaur.com/csv and this query will return the same rows:
 ```
 select from /home/dave/sync/classes/artificiali/h/aiproject/weatherAUS.csv
 where not (
