@@ -36,7 +36,7 @@ Here are histograms of how frequently each input feature value corresponds to ra
 
 **My model function:** 
 
-There are too many parameters to hardcode into the function, so it loops over the arrays extracted from keras.
+There are too many parameters to hardcode into the function, so it loops over the arrays extracted from keras. The arrays are produced by running weather.py with printweights=True, and then editing the output a bit. This is in mymodel.py and mymodel.ipynb
 
 <br>
 <img src="mymod.png" align="middle"/>
@@ -59,7 +59,7 @@ This is the result when limiting the input features to what look like the most r
 
 **Nueral network with linear activation:**
 
-This produces normal-distribution predictions. High accuracy is achieved by separating the orange from the blue, and this distribution makes that much more difficult than the J-shape distributions produced by the tanh-sigmoid model.
+This produces normal-distribution predictions. High accuracy is achieved by separating the orange from the blue, and this distribution makes that much more difficult than the J-shape distributions produced by the tanh-sigmoid model. I kept my hardcoded model on the right for comparision.
 
 <br>
 <img src="linearnn.png" align="middle"/>
