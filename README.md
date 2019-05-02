@@ -59,6 +59,8 @@ This is the result when limiting the input features to what look like the most r
 
 **Nueral network with linear activation:**
 
+This produces normal-distribution predictions. High accuracy is achieved by separating the orange from the blue, and this distribution makes that much more difficult than the J-shape distributions produced by the tanh-sigmoid model.
+
 <br>
 <img src="linearnn.png" align="middle"/>
 <hr>
@@ -73,7 +75,7 @@ The linear regression model gets almost the same results as the 4-layer neural n
                              
 **Model with simple logistic regression:**
 
-This gets a similar type of output as the main model, but with far less accuracy.
+This gets a similar type of output as the main model, but with far less accuracy, especially on rain-positive predictions. I tried training it some more, but it never improved beyond this outcome.
 
 <br>
 <img src="logreg.png" align="middle"/>
