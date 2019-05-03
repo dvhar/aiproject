@@ -16,7 +16,7 @@ All but the last layer use hyberbolic tangent activation function.
 
 Tanh is good because some inputs may produce opposite effects when numbers go up or down, so output range of -1 to 1 can take advantage of that. 
 
-The output uses sigmoid because the output is yes/no, so it needs a function that goes from 0 to 1
+The last layer uses sigmoid because that output is yes/no, so it needs a function that goes from 0 to 1
 
 **Data cleaning:**
 
